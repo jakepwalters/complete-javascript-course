@@ -42,16 +42,26 @@
 
 //arrow function
 
-const calcAge3 = birthYear => 2037 - birthYear;
+// const calcAge3 = birthYear => 2037 - birthYear;
 
-const age3 = calcAge3(1991);
-console.log(age3);
+// const age3 = calcAge3(1991);
+// console.log(age3);
 
-const retireYears = (birthYear, firstName) => {
-    const age = 2023 - birthYear;
-    const retirement = 55 - age;
-    //return retirement;
-    return `${firstName} retires in ${retirement} years`
+// const retireYears = (birthYear, firstName) => {
+//     const age = 2023 - birthYear;
+//     const retirement = 55 - age;
+//     //return retirement;
+//     return `${firstName} retires in ${retirement} years`
+// }
+
+// console.log(retireYears(1996, 'Jake'));
+
+const jake = {
+    firstName: `Jake`,
+    lastName: `Walters`,
+    age: 26,
+    job: `Solutions Engineer`,
+    friends: [`Richard`, `Rylie`, `Andrew`]
 }
 
-console.log(retireYears(1996, 'Jake'));
+console.log(jake)
