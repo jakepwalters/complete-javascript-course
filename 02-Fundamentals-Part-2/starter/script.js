@@ -117,34 +117,140 @@
 // console.log(jake.getSummary())
 
 
-const mark = {
-    firstName: `Mark`,
-    lastName: `Miller`,
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        this.bmi = (this.mass / this.height ** 2);
-        return this.bmi;
+// const mark = {
+//     firstName: `Mark`,
+//     lastName: `Miller`,
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         this.bmi = (this.mass / this.height ** 2);
+//         return this.bmi;
+//     }
+// }
+
+// const john = {
+//     firstName: `John`,
+//     lastName: `Smith`,
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function () {
+//         this.bmi = (this.mass / this.height ** 2);
+//         return this.bmi;
+//     }
+// }
+// mark.calcBMI();
+// john.calcBMI();
+
+// if (mark.bmi > john.bmi) {
+//     console.log(`${mark.firstName}'s BMI (${mark.bmi}) is higher than ${john.firstName}'s (${john.bmi}).`)
+// } else {
+//     console.log(`${john.firstName}'s BMI (${john.bmi}) is higher than ${mark.firstName}'s (${mark.bmi}).`)
+// }
+
+// for(let rep = 1; rep <= 10; rep ++) {
+//     console.log(`lifting weights repetition ${rep}`);
+// }
+
+// const jakeArray = ['Jake', 'Walters', 2023-1996, 'Solutions Engineer', ['Rich', 'Ry', 'Murph'], true];
+// const arrayTypes = [];
+
+// // for (let i = 0; i <= jakeArray.length - 1; i++) {
+// //     console.log(jakeArray[i])
+
+// //     //filling the array
+// //     // arrayTypes[i] = typeof jakeArray[i]
+// //     arrayTypes.push(typeof jakeArray[i])
+// // }
+
+// // console.log(arrayTypes)
+
+// // const years = [1991, 2007, 1969, 1932];
+
+// // const ages = [];
+
+// // for (let i = 0; i < years.length; i++) {
+// //     ages.push(2023 - years[i]);
+// // }
+
+// // console.log(ages);
+
+// // continue and break
+// for (let i = 0; i <= jakeArray.length - 1; i++) {
+//     if (typeof jakeArray[i] !== 'string') continue;
+
+//     console.log(jakeArray[i], typeof jakeArray[i])
+// }
+
+//backwards looping
+
+// const jakeArray = ['Jake', 'Walters', 2023-1996, 'Solutions Engineer', ['Rich', 'Ry', 'Murph']];
+
+// for (let i = jakeArray.length - 1; i >=0; i--) {
+//     console.log(i, jakeArray[i])
+// }
+
+// for (let exercise = 1; exercise <= 3; exercise++) {
+//     console.log(`-----starting exercise ${exercise}-----`);
+
+//     for (let rep = 1; rep <= 5; rep++) {
+//         console.log(`lifting weights repetition ${rep}.`)
+//     }
+// }
+
+//while loop
+
+// for (let exercise = 1; exercise <= 3; exercise++) {
+//     console.log(`-----starting exercise ${exercise}-----`);
+
+//     let rep = 1;
+//     while (rep <= 5) {
+//         console.log(`lifting weights repetition ${rep}.`)
+//         rep++;
+//     }
+// }
+
+// let rep = 1;
+// while (rep <= 5) {
+//     console.log(`lifting weights repetition ${rep}.`)
+//     rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//     console.log(`You rolled a ${dice}`);
+//     dice = Math.trunc(Math.random() * 6) + 1;
+
+//     if (dice === 6) {
+//         console.log('WOOHOO')
+//     }
+// }
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  }
+
+//loop through each bill in the bills array
+for (let i = 0; i <= bills.length - 1; i++) {
+    //calc tip for each bill
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i])
+}
+
+function calcAverage(arr) {
+    let total = 0;
+    for (let i = 0; i <= arr.length - 1; i++) {
+        total += arr[i]
     }
+
+    return total / arr.length
 }
 
-const john = {
-    firstName: `John`,
-    lastName: `Smith`,
-    mass: 92,
-    height: 1.95,
-    calcBMI: function () {
-        this.bmi = (this.mass / this.height ** 2);
-        return this.bmi;
-    }
-}
-mark.calcBMI();
-john.calcBMI();
-
-if (mark.bmi > john.bmi) {
-    console.log(`${mark.firstName}'s BMI (${mark.bmi}) is higher than ${john.firstName}'s (${john.bmi}).`)
-} else {
-    console.log(`${john.firstName}'s BMI (${john.bmi}) is higher than ${mark.firstName}'s (${mark.bmi}).`)
-}
-
-
+console.log(tips)
+console.log(totals)
+console.log(calcAverage(totals))
