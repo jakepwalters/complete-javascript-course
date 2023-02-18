@@ -69,7 +69,6 @@
 
 // // const interestedIn = prompt(`What do you want to know about Jake? Choose between firstName, lastName, age, job, or friends.`)
 
-
 // // if (jake[interestedIn]) {
 // //     console.log(jake[interestedIn]);
 // // } else {
@@ -84,9 +83,7 @@
 
 // // `Jake has 3 friends, and his best friend is named Richard`
 
-
 // console.log(`Jake has ${jake.friends.length} friends, and his best friend is named ${jake.friends[0]}.`)
-
 
 // const jake = {
 //     firstName: `Jake`,
@@ -115,7 +112,6 @@
 // console.log(jake.calcAge())
 
 // console.log(jake.getSummary())
-
 
 // const mark = {
 //     firstName: `Mark`,
@@ -231,26 +227,28 @@ const tips = [];
 const totals = [];
 
 const calcTip = function (bill) {
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-  }
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
 
 //loop through each bill in the bills array
 for (let i = 0; i <= bills.length - 1; i++) {
-    //calc tip for each bill
-    const tip = calcTip(bills[i]);
-    tips.push(tip);
-    totals.push(tip + bills[i])
+  //calc tip for each bill
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
 }
 
 function calcAverage(arr) {
-    let total = 0;
-    for (let i = 0; i <= arr.length - 1; i++) {
-        total += arr[i]
-    }
+  let total = 0;
+  for (let i = 0; i <= arr.length - 1; i++) {
+    total += arr[i];
+  }
 
-    return total / arr.length
+  return total / arr.length;
 }
 
-console.log(tips)
-console.log(totals)
-console.log(calcAverage(totals))
+console.log(tips);
+console.log(totals);
+console.log(calcAverage(totals));
+
+// console.log(bill);
