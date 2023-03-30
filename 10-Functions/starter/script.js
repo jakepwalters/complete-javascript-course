@@ -224,8 +224,19 @@ const poll = {
     } else {
       this.answers[answer]++;
     }
+
+    this.displayResults();
   },
+  displayResults: function (type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  }, 
+  
 };
 
-poll.registerNewAnswer();
-console.log(poll.answers);
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
