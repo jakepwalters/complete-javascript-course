@@ -172,3 +172,119 @@
 // // getSummary();
 
 // jake.getSummary();
+
+//for loop keeps running while condition is TRUE
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+// const jakeArray = [
+//   'Jake',
+//   'Walters',
+//   2023 - 1996,
+//   'Web Developer',
+//   ['Richard', 'Andrew', 'Rylie'],
+//   true,
+// ];
+
+// let types = [];
+
+// for (let i = 0; i < jakeArray.length; i++) {
+//   types.push(typeof jakeArray[i]);
+//   console.log(jakeArray[i]);
+// }
+
+// console.log(types);
+
+// const years = [1988, 2983, 2023, 2222];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//   let age = 2023 - years[i];
+//   ages.push(age);
+// }
+
+// console.log(ages);
+
+// //continue and break
+// console.log('----ONLY STRINGS-----');
+
+// for (let i = 0; i < jakeArray.length; i++) {
+//     if(typeof jakeArray[i] !== 'string') continue;
+
+//   console.log(jakeArray[i], typeof jakeArray[i]);
+// }
+
+// //// ----- LOOPING BACKWARDS
+// const jakeArray = [
+//   'Jake',
+//   'Walters',
+//   2023 - 1996,
+//   'Web Developer',
+//   ['Richard', 'Andrew', 'Rylie'],
+//   true,
+// ];
+
+// for (let i = jakeArray.length - 1; i >= 0; i--) {
+//   console.log(jakeArray[i]);
+// }
+
+// //// ------LOOPS IN LOOPS
+// const exercises = ['Exercise 1', 'Exercise 2', 'Exercise 3'];
+// for (let i = 0; i < exercises.length; i++) {
+//   console.log(exercises[i]);
+//   for (let j = 1; j <= 5; j++) {
+//     console.log(`Repetition ${j}`);
+//   }
+// }
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+// let rep = 1;
+// while (rep <= 10) {
+//   console.log(`WHILE: Lifting weights repetition ${rep}`);
+//   rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//     console.log(dice);
+//     dice = Math.trunc(Math.random() * 6) + 1
+// }
+
+// console.log(dice);
+
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+// /* Write your code below. Good luck! 🙂 */
+
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// let tips = [];
+// let totals = [];
+
+// for (let i = 0; i < bills.length; i++) {
+//   const tip = calcTip(bills[i]);
+//   tips.push(tip);
+//   totals.push(tip + bills[i]);
+// }
+
+// // console.log('-----TIPS-----');
+// console.log(tips);
+// // console.log('-----TOTALS-----');
+// console.log(totals);
+
+// function calcAverage(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i];
+//   }
+
+//   return sum / arr.length;
+// }
+
+// console.log(calcAverage(totals));
