@@ -61,6 +61,26 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+        <div class="movements__row">
+          <div class="movements__type movements__type--${type}">
+          ${i + 1} ${type}</div>
+          <div class="movements__value">${mov}</div>
+        </div>
+    
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -135,20 +155,46 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //   }
 // });
 
-const currencies = new Map([
-  ['USD', 'United States Dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound Sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States Dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound Sterling'],
+// ]);
 
-currencies.forEach(function (val, key, map) {
-  console.log(`${key}, ${val}`);
-});
+// currencies.forEach(function (val, key, map) {
+//   console.log(`${key}, ${val}`);
+// });
 
-//set
+// //set
 
-const currenciesUnique = new Set(['USD', 'GBP', 'CAD', 'USD', 'GBP']);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (val, key, set) {
-  console.log(`${key}, ${val}`);
-});
+// const currenciesUnique = new Set(['USD', 'GBP', 'CAD', 'USD', 'GBP']);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (val, key, set) {
+//   console.log(`${key}, ${val}`);
+// });
+
+/// test 1: julia [3, 5, 2, 12, 7], kate [4, 1, 15, 8, 3]
+/// test 2: julia [9, 16, 6, 8, 3], kate [10, 5, 6, 1, 4]
+
+const julia1 = [3, 5, 2, 12, 7];
+const kate1 = [4, 1, 15, 8, 3];
+const julia2 = [9, 16, 6, 8, 3];
+const kate2 = [10, 5, 6, 1, 4];
+
+const checkDogs = function (julia, kate) {
+  let juliaFinal = [...julia];
+  juliaFinal.splice(-2);
+
+  const allDogs = [...juliaFinal, ...kate];
+
+  allDogs.forEach(function (age, i) {
+    if (age >= 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${age} years old`);
+    } else {
+      console.log(`Dog number ${i + 1} is a puppy, and is ${age} years old`);
+    }
+  });
+};
+
+checkDogs(julia1, kate1);
+checkDogs(julia2, kate2);
