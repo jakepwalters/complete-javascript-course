@@ -70,7 +70,7 @@ const displayMovements = function (movements) {
         <div class="movements__row">
           <div class="movements__type movements__type--${type}">
           ${i + 1} ${type}</div>
-          <div class="movements__value">${mov}</div>
+          <div class="movements__value">${mov}€</div>
         </div>
     
     `;
@@ -83,10 +83,34 @@ displayMovements(account1.movements);
 
 const calcPrintBalance = movements => {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
 };
 
 calcPrintBalance(account1.movements);
+
+const calcDisplaySummary = movements => {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);
 
 const createUsernames = function (acct) {
   acct.forEach(function (acc) {
@@ -313,21 +337,33 @@ const test2 = [16, 6, 10, 5, 6, 1, 4];
 //       return dogAgeHuman >= 18;
 //     });
 //   return humanAges;
-// };
+// // };
 
-const calcHumanAge2 = function (arr) {
-  const humanAges = arr
+const calcHumanAge2 = ages =>
+  ages
     .map(dogAge => (dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4))
-    .filter(dogHumanAge => dogHumanAge >= 18);
-  console.log(humanAges);
+    .filter(dogHumanAge => dogHumanAge >= 18)
+    .reduce((acc, dogHumanAge, i, arr) => acc + dogHumanAge / arr.length, 0);
 
-  const avg = humanAges.reduce((acc, age) => acc + age, 0) / humanAges.length;
+  // const avg = humanAges.reduce((acc, age) => acc + age, 0) / humanAges.length;
 
- return avg
-};
 
-// console.log(calcHumanAge(test1));
-// console.log(calcHumanAge2(test1));
-// console.log(calcHumanAge2);
+// // console.log(calcHumanAge(test1));
 console.log(calcHumanAge2(test1));
-console.log(calcHumanAge2(test2));
+// // console.log(calcHumanAge2);
+// console.log(calcHumanAge2(test1));
+// console.log(calcHumanAge2(test2));
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurToUSD = 1.1;
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUSD)
+//   // .map((mov, i, arr) => {
+//   //   console.log(arr);
+//   //   return mov * eurToUSD;
+//   // })
+//   .reduce((acc, mov) => acc + mov, 0);
+
+// console.log(totalDepositsUSD);
